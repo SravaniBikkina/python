@@ -11,7 +11,7 @@ tasks:
     steps:
       - checkout
       - docker/build:
-          image: sravanibikkina/python
+          image: sravanibikkina/python:latest
           push: true
           tags: [b'${CI_COMMIT_SHA}", "latest"]
           dockerfile: Dockerfile
