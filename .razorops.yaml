@@ -11,9 +11,9 @@ tasks:
     steps:
       - checkout
       - docker/build:
-          image: sravanibikkina/pythoncicd:first
+          image: sravanibikkina/python:latest
           dockerfile: Dockerfile
           context: .
   push-docker-image-to-dockerhub:
         command: 
-        - sudo docker push sravanibikkina/python:tagname
+        - sudo docker push sravanibikkina/python:latest
