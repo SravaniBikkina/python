@@ -12,7 +12,7 @@ tasks:
       - checkout
       - docker/build:
           image: sravanibikkina/python
-          push: true
+          push: true .
           tags: [b'${CI_COMMIT_SHA}", "latest"]
           dockerfile: ./Dockerfile
           context: .
