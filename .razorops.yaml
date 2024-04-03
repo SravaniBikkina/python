@@ -4,7 +4,7 @@ global:
   runner:
     os_image: ubuntu
   variables:
-    - RACK_ENV=test
+    - RACK_ENV: test
 
 tasks:
   build-docker-image:
@@ -13,8 +13,10 @@ tasks:
       - docker/build:
           image: sravanibikkina/python
           push: true 
-          tags: [b'${CI_COMMIT_SHA}", "latest"]
+          tags: 
+            - "${CI_COMMIT_SHA}"
+            - "latest"
           dockerfile: ./Dockerfile
           context: .
           args:
-          - API_TOKEN=foobar
+            - API_TOKEN=foobar
