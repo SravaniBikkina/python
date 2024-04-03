@@ -1,9 +1,8 @@
-ersion: v2
-
+version: v2
 global:
   runner:
     os_image: ubuntu
-  variables:
+   variables:
     - RACK_ENV=test
 
 tasks:
