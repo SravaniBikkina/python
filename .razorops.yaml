@@ -11,9 +11,10 @@ tasks:
     steps:
       - checkout
       - docker/build:
-          image: sravanibikkina/python:latest
+          image: sravanibikkina/python
+          push: true
+          tags: [b'${CI_COMMIT_SHA}", "latest"]
           dockerfile: Dockerfile
           context: .
-  push-docker-image-to-dockerhub:
-        command: 
-        - sudo docker push sravanibikkina/python:latest
+          args:
+          - API_TOKEN=foobar
