@@ -1,19 +1,19 @@
-version : v2
-global :
-  runner : 
-  container:
-    - image: pythoncicd
-  tasks:
-  build-image:
+version: v2
+
+global:
+  runner:
+    os_image: ubuntu
+  variables:
+    - RACK_ENV=test
+
+tasks:
+  build-docker-image:
     steps:
-    - checkout
-    - docker/build:
-      image : pythoncicd
-        push: true
-        tags: ["${CI_COMMIT_SHA}", "latest"]
-        dockerfile: Dockerfile
-   - reports/html:
-        dir: coverage
-        index: index.html
-    - deploy:
-    when: branch == 'master'
+      - checkout
+      - docker/build:
+          image: sravanibikkina/pythoncicd:first
+          dockerfile: Dockerfile
+          context: .
+  push-docker-image-to-dockerhub:
+        command: 
+        - sudo docker push sravanibikkina/pythoncicd:first
