@@ -17,5 +17,5 @@ tasks:
           dockerfile: Dockerfile
           context: .
           args:
-          - API_TOKEN=dckr_pat_rTYiSBR4r_dKuNOb4QAQ6l0ETh4
+          - API_TOKEN
   
